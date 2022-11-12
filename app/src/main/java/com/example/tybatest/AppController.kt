@@ -1,0 +1,62 @@
+package com.example.tybatest
+
+import android.app.Application
+import android.text.TextUtils
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.ImageLoader
+import com.android.volley.toolbox.Volley
+
+
+class AppController : Application() {
+    private var mRequestQueue: RequestQueue? = null
+    private var mImageLoader: ImageLoader? = null
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
+    }
+
+    val requestQueue: RequestQueue
+        get() {
+            if (mRequestQueue == null) {
+                mRequestQueue = Volley.newRequestQueue(applicationContext)
+            }
+            return mRequestQueue!!
+        }
+    /*val imageLoader: ImageLoader?
+        get() {
+            requestQueue
+            if (mImageLoader == null) {
+                mImageLoader = ImageLoader(
+                    mRequestQueue,
+                    ImageClass()
+                )
+            }
+            return mImageLoader
+        }*/
+
+    fun addToRequestQueue(req: Request<*>, tag: String?) {
+        // set the default tag if tag is empty
+        req.tag = if (TextUtils.isEmpty(tag)) TAG else tag
+        requestQueue.add(req)
+    }
+
+    fun addToRequestQueue(req: Request<*>) {
+        req.tag = TAG
+        requestQueue.add(req)
+    }
+
+    fun cancelPendingRequests(tag: Any?) {
+        if (mRequestQueue != null) {
+            mRequestQueue!!.cancelAll(tag)
+        }
+    }
+
+    companion object {
+        val TAG = AppController::class.java.simpleName
+
+        @get:Synchronized
+        var instance: AppController? = null
+            private set
+    }
+}

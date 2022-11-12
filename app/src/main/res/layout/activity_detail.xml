@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--/*{
+  "alpha_two_code": "US",
+  "domains": [
+    "marywood.edu"
+  ],
+  "country": "United States",
+  "state-province": null,
+  "web_pages": [
+    "http://www.marywood.edu"
+  ],
+  "name": "Marywood University"
+}*/-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="University of Michigan" />
+
+        <TextView
+            android:id="@+id/tv_alpha_two_code"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="Alpha two code: US" />
+
+        <TextView
+            android:id="@+id/tv_domains"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_alpha_two_code"
+            tools:text="Domains: www.example.com, www.example2.com" />
+
+        <TextView
+            android:id="@+id/tv_state_province"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_domains"
+            tools:text="State province: Califorinia" />
+
+        <TextView
+            android:id="@+id/tv_web_pages"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_state_province"
+            tools:text="Web pages: www.example.com, www.example2.com" />
+
+        <TextView
+            android:id="@+id/tv_country"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_web_pages"
+            tools:text="Country: United States" />
+
+        <TextView
+            android:id="@+id/tv_label_num_of_students"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAlignment="textStart"
+            android:text="Number of students"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_country" />
+        <EditText
+            android:id="@+id/tv_students_number"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@id/tv_label_num_of_students"
+            app:layout_constraintTop_toTopOf="@id/tv_label_num_of_students"
+            app:layout_constraintBottom_toBottomOf="@id/tv_label_num_of_students"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingStart="20dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_students_number">
+
+            <ImageView
+                android:id="@+id/iv_photo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="300dp"
+                android:layout_width="300dp"/>
+
+            <ImageButton
+                android:id="@+id/btn_camera"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/iv_photo"
+                app:layout_constraintStart_toStartOf="@id/iv_photo"
+                android:src="@drawable/ic_baseline_camera_alt_24"/>
+
+            <ImageButton
+                android:id="@+id/btn_gallery"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/iv_photo"
+                app:layout_constraintEnd_toEndOf="@id/iv_photo"
+                android:src="@drawable/ic_baseline_image_24"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
